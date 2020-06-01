@@ -1,7 +1,6 @@
 package com.epam.payment.entity;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,18 +13,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "customer_accounts")
+@Table(name = "payment_rollback_history")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CustomerAccount implements Serializable {
+public class RollbackHistoryEntity implements Serializable {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_accounts_seq")
-  @SequenceGenerator(name = "customer_accounts_seq", sequenceName = "customer_accounts_id_seq", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payment_rollback_history_seq")
+  @SequenceGenerator(name = "payment_rollback_history_seq", sequenceName = "payment_rollback_history_id_seq", allocationSize = 1)
+  private Long id;
   private Long customerId;
-
-  @Column
-  private Double balance;
+  private Long orderId;
 }

@@ -6,4 +6,5 @@ public interface PaymentService {
 
   boolean enoughMoney(OrderDto order);
 
+  void update(OrderDto orderDto);
 }
